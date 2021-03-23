@@ -57,11 +57,11 @@ describe('Round', function() {
     const round = new Round(deck);
 
     let feedback = round.takeTurn({ id: 1, guess: 'object' }); // card1, correct guess
-    expect(feedback).to.equal('correct!')
+    expect(feedback).to.equal('correct!');
 
     feedback = round.takeTurn({ id: 2, guess: 'object' }); // card2, incorrect guess
-    expect(feedback).to.equal('incorrect!')
-  })
+    expect(feedback).to.equal('incorrect!');
+  });
 
   it('should store incorrect guesses', function() {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -72,8 +72,8 @@ describe('Round', function() {
 
     round.takeTurn({ id: 1, guess: 'object' }); // card1, correct guess
     round.takeTurn({ id: 2, guess: 'object' }); // card2, incorrect guess
-    expect(round.incorrectGuesses).to.deep.equal([2])
-  })
+    expect(round.incorrectGuesses).to.deep.equal([2]);
+  });
 
   it('should calculate percent correct', function() {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -84,6 +84,6 @@ describe('Round', function() {
 
     round.takeTurn({ id: 1, guess: 'object' }); // card1, correct guess
     round.takeTurn({ id: 2, guess: 'object' }); // card2, incorrect guess
-    expect(round.calculatePercentCorrect()).to.equal(50)
-  })
-})
+    expect(round.calculatePercentCorrect()).to.equal(50);
+  });
+});
