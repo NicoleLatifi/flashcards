@@ -4,7 +4,7 @@ class Round {
   constructor(deck) {
     this.cards = deck.cards;
     this.currentCard = this.cards[0];
-    this.turns = 1;
+    this.turns = 0;
     this.incorrectGuesses = [];
   }
 
@@ -23,6 +23,10 @@ class Round {
       this.incorrectGuesses.push(guess.id)
       return 'incorrect!'
     }
+  }
+
+  calculatePercentCorrect() {
+    return this.incorrectGuesses.length / this.turns * 100
   }
 }
 
