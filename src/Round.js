@@ -12,21 +12,22 @@ class Round {
     return this.currentCard
   }
 
-  takeTurn(guess) {
-    let turn = new Turn(guess.guess, this.currentCard)
+  takeTurn(guessData) {
+    let turn = new Turn(guessData, this.currentCard)
     this.turns++
-    this.cards.push(this.cards.shift());
-    this.currentCard = this.cards[0];
+    // this.cards.push(this.cards.shift());
+    // this.currentCard = this.cards[0];
+    this.currentCard = this.cards[this.turns]
     if(turn.evaluateGuess()) {
       return 'correct!'
     } else {
-      this.incorrectGuesses.push(guess.id)
+      this.incorrectGuesses.push(guessData)
       return 'incorrect!'
     }
   }
 
   calculatePercentCorrect() {
-    return this.incorrectGuesses.length / this.turns * 100
+    return 100 - (this.incorrectGuesses.length / this.turns * 100)
   }
 
   endRound() {
